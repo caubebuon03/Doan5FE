@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { Observable } from 'rxjs-compat';
+import { BaseComponent } from '../lib/base-component';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent extends BaseComponent implements OnInit {
+  list_item:any;
 
-  constructor() { }
+  constructor(injector: Injector) {
+    super(injector);
+   }
 
   ngOnInit(): void {
+    Observable.combineLatest(
+      this._api.get('/api/product/get-all'),
+    ).takeUntil(this.unsubscribe).subscribe(res => {
+      this.list_item = res[0];
+      setTimeout(() => {
+        this.loadScripts();
+      });
+    }, err => { });
   }
-
+  loadScripts() {
+    throw new Error('Method not implemented.');
+  }
+  
+  // addToCart(it) { 
+  //   this._cart.addToCart(it);
+  //   alert('Thêm thành công!'); 
 }
