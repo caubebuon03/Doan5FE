@@ -13,20 +13,16 @@ export class ChitietComponent extends BaseComponent implements OnInit {
   constructor(injector: Injector) {
     super(injector);
   }
-
   ngOnInit(): void {
     this.item = {};
     this._route.params.subscribe(params => {
       let id = params['id'];
-      this._api.get('/api/Product/get-by-id/'+id).pipe(takeUntil(this.unsubscribe)).subscribe((res: any) => {
+      this._api.get('/api/product/get-by-id/'+id).pipe(takeUntil(this.unsubscribe)).subscribe((res: any) => {
         this.item = res;
         setTimeout(() => {
           this.loadScripts();
         });
       }); 
     });
-  }
-  loadScripts() {
-    throw new Error('Method not implemented.');
   }
 }

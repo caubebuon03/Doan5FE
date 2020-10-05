@@ -22,11 +22,9 @@ export class MainComponent extends BaseComponent implements OnInit {
       setTimeout(() => {
         this.loadScripts();
       });
-    }, err => { });
+    }, err => {});
   }
-  loadScripts() {
-    throw new Error('Method not implemented.');
-  }
+ 
   
   // addToCart(it) { 
   //   this._cart.addToCart(it);
