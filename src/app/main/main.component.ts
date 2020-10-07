@@ -24,9 +24,9 @@ export class MainComponent extends BaseComponent implements OnInit {
       });
     }, err => {});
   }
- 
-  
-  // addToCart(it) { 
-  //   this._cart.addToCart(it);
-  //   alert('Thêm thành công!'); 
+
+  addToCart(it) { 
+    this._cart.addToCart(it);
+    alert('Thêm thành công!'); 
+  }
 }

@@ -152,8 +152,53 @@
                   <div class="productinfo text-center">
                  <a [routerLink]="['/product/chitiet',item.product_id]"><img src="./assets/images/SanPham/{{item.product_image}}" alt="" /></a> 
                     <h2>{{item.product_price}}</h2>
-                 <h4 class="product_name"> <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a></h4> 
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                 <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a>
+                    <a (click)="addToCart(item)" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
+                </ng-container>
+              </div>
+              
+              <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                  <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                  <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="product-image-wrapper">
+              <div class="single-products">
+                <ng-container *ngFor="let item of list_item">
+                  <div class="productinfo text-center">
+                 <a [routerLink]="['/product/chitiet',item.product_id]"><img src="./assets/images/SanPham/{{item.product_image}}" alt="" /></a> 
+                    <h2>{{item.product_price}}</h2>
+                 <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a>
+                    <a (click)="addToCart(item)" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
+                </ng-container>
+              </div>
+              
+              <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                  <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                  <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="product-image-wrapper">
+              <div class="single-products">
+                <ng-container *ngFor="let item of list_item">
+                  <div class="productinfo text-center">
+                 <a [routerLink]="['/product/chitiet',item.product_id]"><img src="./assets/images/SanPham/{{item.product_image}}" alt="" /></a> 
+                    <h2>{{item.product_price}}</h2>
+                 <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a>
+                    <a (click)="addToCart(item)" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart"></i>Add to cart</a>
                   </div>
                 </ng-container>
               </div>
@@ -173,7 +218,7 @@
           
 
 
-          <div class="col-sm-4">
+          <!-- <div class="col-sm-4">
             <div class="product-image-wrapper">
               <div class="single-products">
                 <div class="productinfo text-center">
@@ -190,8 +235,8 @@
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="col-sm-4">
+          </div> -->
+          <!-- <div class="col-sm-4">
             <div class="product-image-wrapper">
               <div class="single-products">
                 <div class="productinfo text-center">
@@ -266,7 +311,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
           
         </div><!--features_items-->
         

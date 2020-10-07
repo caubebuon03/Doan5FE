@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './customer/cart/cart.component';
 import { CheckoutComponent } from './customer/checkout/checkout.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
 
@@ -16,11 +17,9 @@ import { CheckoutComponent } from './customer/checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
     HeaderComponent,
+    MainComponent,
     FooterComponent,
-    CartComponent,
-    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

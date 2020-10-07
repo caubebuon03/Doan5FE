@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ChitietComponent } from './product/chitiet/chitiet.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './customer/login/login.component';
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
@@ -14,8 +14,15 @@ const routes: Routes = [
     loadChildren: () => import('./product/product.module').then((m) => m.ProductModule),
   },
 
+  {
+    path: 'customer',
+    loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerModule),
+  },
 
-
+  {
+    path: 'home',
+    loadChildren: () => import('./main/main.module').then((m) => m.MainModule),
+  },
 
    {
      path: '',
