@@ -9,6 +9,9 @@ import { BaseComponent } from '../lib/base-component';
 })
 export class MainComponent extends BaseComponent implements OnInit {
   list_item:any;
+  menus:any;
+  total:any;
+  brands:any;
 
   constructor(injector: Injector) {
     super(injector);
@@ -22,6 +25,23 @@ export class MainComponent extends BaseComponent implements OnInit {
       setTimeout(() => {
         this.loadScripts();
       });
+
+      this._api.get('/api/category/get-category').takeUntil(this.unsubscribe).subscribe(res => {
+        this.menus = res;
+        
+      }); 
+      this._cart.items.subscribe((res) => {
+        this.total = res? res.length:0;
+      });
+
+      this._api.get('/api/brand/get-brand').takeUntil(this.unsubscribe).subscribe(res => {
+        this.brands = res;
+        
+      }); 
+      this._cart.items.subscribe((res) => {
+        this.total = res? res.length:0;
+      });
+      
     }, err => {});
   }
 

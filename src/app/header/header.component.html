@@ -62,7 +62,7 @@
               <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
               <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
               <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-              <li><a routerLink="/customer/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+              <li><a routerLink="/customer/cart"><i class="fa fa-shopping-cart"></i> Cart({{total}})</a></li>
               <li><a routerLink="/login"><i class="fa fa-lock"></i> Login</a></li>
             </ul>
           </div>
@@ -91,17 +91,33 @@
                                       <li><a href="shop.html">Products</a></li>
                   <li><a href="product-details.html">Product Details</a></li> 
                   <li><a href="checkout.html">Checkout</a></li> 
-                  <li><a routerLink="/customer/cart">Cart </a></li> 
+                  <li><a routerLink="/customer/cart">Cart({{total}}) </a></li> 
                   <li><a href="login.html">Login</a></li> 
                                   </ul>
                               </li> 
-              <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+              <ng-container *ngFor="let mn of menus">
+              <li class="dropdown" *ngIf="mn.children !=null" ><a href="#">{{mn.category_name}}<i class="fa fa-angle-down"></i></a>
+
                                   <ul role="menu" class="sub-menu">
-                                      <li><a href="blog.html">Blog List</a></li>
-                  <li><a href="blog-single.html">Blog Single</a></li>
+                                    <ng-container *ngFor="let m of mn.children">
+                                      <li><a href="blog.html">{{m.category_name}}</a></li>
+                                    </ng-container> 
                                   </ul>
-                              </li> 
-              <li><a href="404.html">404</a></li>
+              </li> 
+              <!-- <li  *ngIf="mn.children == null"><a href="">{{mn.category_name}}</a></li> -->
+            </ng-container>
+
+            <ng-container *ngFor="let x of brands">
+              <li class="dropdown" *ngIf="x.children !=null" ><a href="#">{{x.brand_name}}<i class="fa fa-angle-down"></i></a>
+
+                                  <ul role="menu" class="sub-menu">
+                                    <ng-container *ngFor="let i of x.children">
+                                      <li><a href="blog.html">{{i.brand_name}}</a></li>
+                                    </ng-container> 
+                                  </ul>
+              </li> 
+              <!-- <li  *ngIf="mn.children == null"><a href="">{{mn.category_name}}</a></li> -->
+            </ng-container>
               <li><a href="contact-us.html">Contact</a></li>
             </ul>
           </div>
