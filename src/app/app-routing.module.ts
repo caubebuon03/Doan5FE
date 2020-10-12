@@ -35,10 +35,7 @@ const routes: Routes = [
    },
 
 
-   {
-     path: 'chitiet',
-     component: ChitietComponent,
-   },
+  
    {
      path: 'login',
      component: LoginComponent,

@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './customer/cart/cart.component';
 import { CheckoutComponent } from './customer/checkout/checkout.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ChitietComponent } from './product/chitiet/chitiet.component';
+import { ListComponent } from './product/list/list.component';
 
 
 
