@@ -34,7 +34,7 @@
             <div class="brands-name">
               <ul class="nav nav-pills nav-stacked">
                 <ng-container *ngFor="let i of x.children">
-                <li><a href="#"> <span class="pull-right">(50)</span>{{i.brand_name}}</a></li>
+                <li><a [routerLink] = "['/product/listb',i.brand_id]" > <span class="pull-right">(50)</span>{{i.brand_name}}</a></li>
               
                 </ng-container> 
               </ul>
@@ -61,18 +61,19 @@
       <div class="col-sm-9 padding-right">
         <div class="features_items"><!--features_items-->
           <h2 class="title text-center">Features Items</h2>
+          <ng-container *ngFor="let item of list_item">
           
           <div class="col-sm-4">
             <div class="product-image-wrapper">
               <div class="single-products">
-                <ng-container *ngFor="let item of list_item">
+                
                   <div class="productinfo text-center">
                  <a [routerLink]="['/product/chitiet',item.product_id]"><img src="./assets/images/SanPham/{{item.product_image}}" alt="" /></a> 
                     <h2>{{item.product_price}}</h2>
                  <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a>
                     <a (click)="addToCart(item)" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart"></i>Add to cart</a>
                   </div>
-                </ng-container>
+                
               </div>
               
               <div class="choose">
@@ -83,9 +84,10 @@
               </div>
             </div>
           </div>
+        </ng-container>
 
 
-          <div class="col-sm-4">
+          <!-- <div class="col-sm-4">
             <div class="product-image-wrapper">
               <div class="single-products">
                 <ng-container *ngFor="let item of list_item">
@@ -105,9 +107,9 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-sm-4">
+          <!-- <div class="col-sm-4">
             <div class="product-image-wrapper">
               <div class="single-products">
                 <ng-container *ngFor="let item of list_item">
@@ -127,7 +129,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
         
           
         

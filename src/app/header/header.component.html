@@ -112,7 +112,7 @@
 
                                   <ul role="menu" class="sub-menu">
                                     <ng-container *ngFor="let i of x.children">
-                                      <li><a href="blog.html">{{i.brand_name}}</a></li>
+                                      <li><a [routerLink] = "['/product/listb',i.brand_id]" >{{i.brand_name}}</a></li>
                                     </ng-container> 
                                   </ul>
               </li> 
