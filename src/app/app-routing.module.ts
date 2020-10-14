@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ChitietComponent } from './product/chitiet/chitiet.component';
 import { LoginComponent } from './customer/login/login.component';
 import { MainComponent } from './main/main.component';
+import { CheckoutComponent } from './customer/checkout/checkout.component';
 
 const routes: Routes = [
   // { path: 'home', component: MainComponent },
@@ -35,11 +36,6 @@ const routes: Routes = [
    },
 
 
-  
-   {
-     path: 'login',
-     component: LoginComponent,
-   },
 
 
 ];

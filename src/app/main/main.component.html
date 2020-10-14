@@ -31,10 +31,10 @@
           <div class="brands_products" *ngIf="x.children !=null"><!--brands_products-->
             <h2>{{x.brand_name}}</h2>
 
-            <div class="brands-name">
-              <ul class="nav nav-pills nav-stacked">
+            <div class="brands-name" >
+              <ul class="nav nav-pills nav-stacked"  id="accordian">
                 <ng-container *ngFor="let i of x.children">
-                <li><a [routerLink] = "['/product/listb',i.brand_id]" > <span class="pull-right">(50)</span>{{i.brand_name}}</a></li>
+                <li style="color: #696763;     text-decoration: none;"><a data-toggle="collapse" data-parent="#accordian" [routerLink] = "['/product/listb',i.brand_id]" > <span class="pull-right">(50)</span>{{i.brand_name}}</a></li>
               
                 </ng-container> 
               </ul>
@@ -69,7 +69,7 @@
                 
                   <div class="productinfo text-center">
                  <a [routerLink]="['/product/chitiet',item.product_id]"><img src="./assets/images/SanPham/{{item.product_image}}" alt="" /></a> 
-                    <h2>{{item.product_price}}</h2>
+                    <h2>{{item.product_price | currency:"VND"}}</h2>
                  <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a>
                     <a (click)="addToCart(item)" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart"></i>Add to cart</a>
                   </div>
