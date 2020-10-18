@@ -40,6 +40,7 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
       ho_ten: value.ho_ten,
        dia_chi: value.dia_chi,
        so_dien_thoai: +value.so_dien_thoai,
+       total:this.total,
        listjson_chitiet:this.items
       };
     this._api.post('/api/hoadon/themHD', hoadon).takeUntil(this.unsubscribe).subscribe(res => {
