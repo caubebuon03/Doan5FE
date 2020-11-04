@@ -33,7 +33,7 @@
                                     <p><a href="">{{c.product_name}}</a></p>
                                 </td>
                                 <td class="cart_price">
-                                    <p>{{c.product_price}}</p>
+                                    <p>{{c.product_price | currency:'VND'}}</p>
                                 </td>
                                 <td class="product-quantity">
                                     <div class="cart_quantity_button">
@@ -45,7 +45,7 @@
                                         
                                     </div>
                                 </td>
-                                <td class="product-subtotal">{{ c.money }}</td>
+                                <td class="product-subtotal">{{ c.money | currency:'VND' }}</td>
                                
                                 <td class="cart_delete">
                                     <a class="cart_quantity_delete" (click)="_cart.deleteItem(c.product_id)"><i class="fa fa-times"></i></a>
@@ -66,9 +66,9 @@
                     <div class="col-sm-6">
                         <div class="total_area">
                             <ul>
-                                <li>Tổng tiền<span>{{total}}</span></li>
+                                <li>Tổng tiền<span>{{total | currency:'VND'}}</span></li>
                                 
-                                <li>Thành tiền<span></span></li>
+                                
                             </ul>
                                 <!-- <a class="btn btn-default update" href="">Update</a> -->
                        
