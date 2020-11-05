@@ -9,6 +9,9 @@ import { BaseComponent } from '../lib/base-component';
 })
 export class MainComponent extends BaseComponent implements OnInit {
   list_item:any;
+  list_item_new:any;
+  index:any;
+  size:any;
   menus:any;
   total:any;
   brands:any;
@@ -18,8 +21,13 @@ export class MainComponent extends BaseComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.list_item=[];
+    this.index=1;
+    this.size=6;
+
+    this.loadScripts();
     Observable.combineLatest(
-      this._api.get('/api/product/get-all'),
+      this._api.get('/api/product/get-all/' +this.index+'/'+this.size),
     ).takeUntil(this.unsubscribe).subscribe(res => {
       this.list_item = res[0];
       setTimeout(() => {
@@ -48,5 +56,12 @@ export class MainComponent extends BaseComponent implements OnInit {
   addToCart(it) { 
     this._cart.addToCart(it);
     alert('Thêm thành công!'); 
+  }
+  loadPage(page) {
+    Observable.combineLatest(
+      this._api.get('/api/product/get-all/'+page+'/'+this.size),
+    ).takeUntil(this.unsubscribe).subscribe(res => {
+      this.list_item = res[0];
+    }, err => {});
   }
 }

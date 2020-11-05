@@ -12,6 +12,7 @@ import { CheckoutComponent } from './customer/checkout/checkout.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ChitietComponent } from './product/chitiet/chitiet.component';
 import { ListComponent } from './product/list/list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -29,6 +30,7 @@ import { ListComponent } from './product/list/list.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
    
   ],
   providers: [],
