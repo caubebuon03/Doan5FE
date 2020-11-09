@@ -9,6 +9,9 @@ import { BaseComponent } from '../../lib/base-component';
 })
 export class ChitietComponent extends BaseComponent implements OnInit {
   item:any;
+  tuongtu:any;
+  menus:any;
+  brands:any;
 
   constructor(injector: Injector) {
     super(injector);
@@ -24,6 +27,19 @@ export class ChitietComponent extends BaseComponent implements OnInit {
         });
       }); 
     });
+    this._route.params.subscribe(params => {
+      let id = params['id'];
+      this._api.get('/api/product/get-tuongtu/'+id).takeUntil(this.unsubscribe).subscribe(res => {
+        this.tuongtu = res;});
+      });
+      this._api.get('/api/category/get-category').takeUntil(this.unsubscribe).subscribe(res => {
+        this.menus = res;
+        
+      }); 
+      this._api.get('/api/brand/get-brand').takeUntil(this.unsubscribe).subscribe(res => {
+        this.brands = res;
+        
+      }); 
   }
   addToCart(it) { 
     this._cart.addToCart(it);

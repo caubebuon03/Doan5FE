@@ -32,6 +32,11 @@ export class MainComponent extends BaseComponent implements OnInit {
       this.list_item = res[0];
       setTimeout(() => {
         this.loadScripts();
+        Observable.combineLatest(
+          this._api.get('/api/product/get-new'),
+        ).takeUntil(this.unsubscribe).subscribe(res => {
+          this.list_item_new = res[0];
+        }, err => {});
       });
 
       this._api.get('/api/category/get-category').takeUntil(this.unsubscribe).subscribe(res => {
