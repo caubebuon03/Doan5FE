@@ -85,7 +85,9 @@
           
        
           
-         
+        <div>
+          <ngb-pagination style="float: right;" [collectionSize]="totalItems" [pageSize]="pageSize" [(page)]="page" [maxSize]="8" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+               </div>
           
         </div>
       </div>

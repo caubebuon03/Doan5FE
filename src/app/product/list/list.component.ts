@@ -8,9 +8,9 @@ import { BaseComponent } from 'src/app/lib/base-component';
 })
 export class ListComponent extends BaseComponent implements OnInit {
   list: any;
-  page: any;
-  pageSize: any;
-  totalItems:any;
+ public page: any;
+ public pageSize: any;
+ public  totalItems:any;
   category_id:any;
   menus:any;
   brands:any;
@@ -22,7 +22,7 @@ export class ListComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     this.list = [];
     this.page = 1;
-    this.pageSize = 5;
+    this.pageSize = 6;
     this._route.params.subscribe(params => {
       this.category_id = params['id'];
       this._api.post('/api/product/search', { 
@@ -31,6 +31,7 @@ export class ListComponent extends BaseComponent implements OnInit {
         category_id: this.category_id}).takeUntil(this.unsubscribe).subscribe(res => {
         this.list = res.data;
         this.totalItems = res.totalItems;
+        this.pageSize = res.pageSize;
         }, err => { });   
         
         this._api.get('/api/category/get-category').takeUntil(this.unsubscribe).subscribe(res => {
@@ -54,6 +55,7 @@ export class ListComponent extends BaseComponent implements OnInit {
         category_id: id}).takeUntil(this.unsubscribe).subscribe(res => {
         this.list = res.data;
         this.totalItems = res.totalItems;
+        this.pageSize = res.pageSize;
         }, err => { });       
    });   
   }
