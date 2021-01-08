@@ -67,7 +67,7 @@
                   
                     <div class="productinfo text-center">
                    <a [routerLink]="['/product/chitiet',item.product_id]"><img src="./assets/images/SanPham/{{item.product_image}}" alt="" /></a> 
-                      <h2>{{item.product_price}}</h2>
+                      <h2>{{item.product_price | currency:"VND"}}</h2>
                    <a [routerLink]="['/product/chitiet',item.product_id]"><p>{{item.product_name}}</p></a>
                       <a (click)="addToCart(item)" class="btn btn-default add-to-cart" ><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
