@@ -121,10 +121,10 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3"><form [formGroup]="formSearch"  (ngSubmit)="timKiem()">
           <div class="search_box pull-right">
-            <input type="text" placeholder="Search"/>
-          </div>
+            <input type="text" formControlName="keyWord" placeholder="Search"/>
+          </div></form>
         </div>
       </div>
     </div>

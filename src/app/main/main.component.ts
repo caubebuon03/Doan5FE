@@ -1,6 +1,8 @@
 import { Component, Injector, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs-compat';
 import { BaseComponent } from '../lib/base-component';
+
 
 @Component({
   selector: 'app-main',
@@ -15,8 +17,20 @@ export class MainComponent extends BaseComponent implements OnInit {
   menus:any;
   total:any;
   brands:any;
+  public products: any; 
+  public totalRecords:any;
+  public pageSize :any;
+  public page :any;
+  public page1 :any;
+  public uploadedFiles: any[] = [];
+  public formsearch: any;
+  public formdata: any;
+  public doneSetupForm: any;  
+  public showUpdateModal:any;
+  public isCreate:any;
+  submitted = false;
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector, private fb: FormBuilder) {
     super(injector);
    }
 
@@ -39,6 +53,8 @@ export class MainComponent extends BaseComponent implements OnInit {
         }, err => {});
       });
 
+       
+
       this._api.get('/api/category/get-category').takeUntil(this.unsubscribe).subscribe(res => {
         this.menus = res;
         
@@ -51,6 +67,7 @@ export class MainComponent extends BaseComponent implements OnInit {
         this.brands = res;
         
       }); 
+      
       this._cart.items.subscribe((res) => {
         this.total = res? res.length:0;
       });
